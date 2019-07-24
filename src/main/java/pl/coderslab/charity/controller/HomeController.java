@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
@@ -26,6 +28,9 @@ public class HomeController {
         return donationRepository.findAll();
     }
 
+    @Autowired
+    public CategoryRepository categoryRepository;
+
     @ModelAttribute("donatedBagsQuantity")
     public int donatedBagsQuantity() {
         int sum=0;
@@ -40,6 +45,11 @@ public class HomeController {
     public List<Institution> institutionsList() {
         return institutionRepository.findAll();
     }
+
+//    @ModelAttribute("categoriesList")
+//    public List<Category> categoriesList() {
+//        return categoryRepository.findAll();
+//    }
 
     @RequestMapping("/")
     public String homeAction(Model model) {
