@@ -46,7 +46,7 @@ public class HomeController {
         return institutionRepository.findAll();
     }
 
-//    @ModelAttribute("categoriesList")
+//    @ModelAttribute("categories")
 //    public List<Category> categoriesList() {
 //        return categoryRepository.findAll();
 //    }

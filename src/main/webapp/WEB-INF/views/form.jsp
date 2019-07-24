@@ -89,21 +89,20 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form method="post" modelAttribute="donation">
+        <form:form method="POST" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
-                <c:forEach items="${categoriesList}" var="category">
+                <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:checkbox
+                            <input
                                     type="checkbox"
                                     name="categories"
                                     value="${category.id}"
-                                    path="categories"
-                             items="${categoriesList}">
-                            </form:checkbox>
+                                    path="categories">
+                            </input>
                             <span class="checkbox"></span>
                             <span class="description"
                             >${category.name}</span
@@ -174,7 +173,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="quantity" step="1" min="1" path="quantity"/>
+                        <input type="number" name="quantity" step="1" min="1" path="quantity"/>
                     </label>
                 </div>
 
@@ -191,7 +190,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton type="radio" name="institution" value="${institution.id}" path="institution"/>
+                            <input type="radio" name="institution" value="${institution.id}" path="institution"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                   <div class="title">${institution.name}</div>
@@ -231,22 +230,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input type="text" name="street" path="street"/> </label>
+                            <label> Ulica <input type="text" name="street" path="street"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input type="text" name="city" path="city"/> </label>
+                            <label> Miasto <input type="text" name="city" path="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input type="text" name="zipCode" path="zipCode"/>
+                                Kod pocztowy <input type="text" name="zipCode" path="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <form:input type="phone" name="phone" path="phone"/>
+                                Numer telefonu <input type="phone" name="phone" path="phone"/>
                             </label>
                         </div>
                     </div>
@@ -254,17 +253,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="date" name="pickUpData" path="pickUpDate"/> </label>
+                            <label> Data <input type="date" name="pickUpData" path="pickUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" name="pickUpTime" path="pickUpTime"/> </label>
+                            <label> Godzina <input type="time" name="pickUpTime" path="pickUpTime"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea name="pickUpComment" rows="5" path="pickUpComment"></form:textarea>
+                                <textarea name="pickUpComment" rows="5" path="pickUpComment"></textarea>
                             </label>
                         </div>
                     </div>
