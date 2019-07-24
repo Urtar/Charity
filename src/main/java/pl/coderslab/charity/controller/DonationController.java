@@ -31,14 +31,13 @@ public class DonationController {
         return institutionRepository.findAll();
     }
 
-    @ModelAttribute("categoriesList")
+    @ModelAttribute("categories")
     public List<Category> categoriesList() {
         return categoryRepository.findAll();
     }
 
     @GetMapping("/donation/add")
     public String donationAdd(Model model) {
-
         model.addAttribute("donation", new Donation());
         return "form";
     }

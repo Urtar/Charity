@@ -27,13 +27,12 @@ public class Donation {
     @NotEmpty
     private String city;
     @NotEmpty
-    private int zipCode;
+    private String zipCode;
     @NotEmpty
-    private long phone;
+    private String phone;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
-    @NotEmpty
-    @DateTimeFormat(pattern = "hh-MM")
+    @DateTimeFormat(pattern = "HH:MM")
     private LocalTime pickUpTime;
     @NotEmpty
     private String pickUpComment;
@@ -89,5 +88,43 @@ public class Donation {
         this.city = city;
     }
 
+    public String getZipCode() {
+        return zipCode;
+    }
 
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getPickUpDate() {
+        return pickUpDate;
+    }
+
+    public void setPickUpDate(LocalDate pickUpDate) {
+        this.pickUpDate = pickUpDate;
+    }
+
+    public LocalTime getPickUpTime() {
+        return pickUpTime;
+    }
+
+    public void setPickUpTime(LocalTime pickUpTime) {
+        this.pickUpTime = pickUpTime;
+    }
+
+    public String getPickUpComment() {
+        return pickUpComment;
+    }
+
+    public void setPickUpComment(String pickUpComment) {
+        this.pickUpComment = pickUpComment;
+    }
 }
