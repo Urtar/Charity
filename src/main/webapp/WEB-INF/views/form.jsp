@@ -15,58 +15,60 @@
     <link rel="stylesheet" href="<c:url value="../../resources/css/style.css"/>"/>
 </head>
 <body>
-<header class="header--form-page">
-    <nav class="container container--70">
-        <ul class="nav--actions">
-            <li class="logged-user">
-                Witaj Agata
-                <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">Ustawienia</a></li>
-                    <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="#">Wyloguj</a></li>
-                </ul>
-            </li>
-        </ul>
 
-        <ul>
-            <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
-            <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
-            <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="index.html#contact" class="btn btn--without-border">Kontakt</a></li>
-        </ul>
-    </nav>
+<jsp:include page="../../WEB-INF/views/headerFormPage.jsp"/>
+<%--<header class="header--form-page">--%>
+<%--    <nav class="container container--70">--%>
+<%--        <ul class="nav--actions">--%>
+<%--            <li class="logged-user">--%>
+<%--                Witaj Agata--%>
+<%--                <ul class="dropdown">--%>
+<%--                    <li><a href="#">Profil</a></li>--%>
+<%--                    <li><a href="#">Ustawienia</a></li>--%>
+<%--                    <li><a href="#">Moje zbiórki</a></li>--%>
+<%--                    <li><a href="#">Wyloguj</a></li>--%>
+<%--                </ul>--%>
+<%--            </li>--%>
+<%--        </ul>--%>
 
-    <div class="slogan container container--90">
-        <div class="slogan--item">
-            <h1>
-                Oddaj rzeczy, których już nie chcesz<br/>
-                <span class="uppercase">potrzebującym</span>
-            </h1>
+<%--        <ul>--%>
+<%--            <li><a href="#start" class="btn btn--without-border active">Start</a></li>--%>
+<%--            <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>--%>
+<%--            <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>--%>
+<%--            <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>--%>
+<%--            <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
 
-            <div class="slogan--steps">
-                <div class="slogan--steps-title">Wystarczą 4 proste kroki:</div>
-                <ul class="slogan--steps-boxes">
-                    <li>
-                        <div><em>1</em><span>Wybierz rzeczy</span></div>
-                    </li>
-                    <li>
-                        <div><em>2</em><span>Spakuj je w worki</span></div>
-                    </li>
-                    <li>
-                        <div><em>3</em><span>Wybierz fundację</span></div>
-                    </li>
-                    <li>
-                        <div><em>4</em><span>Zamów kuriera</span></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
+<%--    <div class="slogan container container--90">--%>
+<%--        <div class="slogan--item">--%>
+<%--            <h1>--%>
+<%--                Oddaj rzeczy, których już nie chcesz<br/>--%>
+<%--                <span class="uppercase">potrzebującym</span>--%>
+<%--            </h1>--%>
 
-<section class="form--steps">
+<%--            <div class="slogan--steps">--%>
+<%--                <div class="slogan--steps-title">Wystarczą 4 proste kroki:</div>--%>
+<%--                <ul class="slogan--steps-boxes">--%>
+<%--                    <li>--%>
+<%--                        <div><em>1</em><span>Wybierz rzeczy</span></div>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <div><em>2</em><span>Spakuj je w worki</span></div>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <div><em>3</em><span>Wybierz fundację</span></div>--%>
+<%--                    </li>--%>
+<%--                    <li>--%>
+<%--                        <div><em>4</em><span>Zamów kuriera</span></div>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</header>--%>
+
+<section class="form--steps" id="steps">
     <div class="form--steps-instructions">
         <div class="form--steps-container">
             <h3>Ważne!</h3>
@@ -230,7 +232,7 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="street" path="street"/> </label>
+                            <label> Ulica <input type="text" name="street" id="street" class="street" path="street"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -285,14 +287,14 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >$("input:checkbox") worki ${donation.categories.name}</span
+                                >${donation.quantity} worki ${donation.categories.id}</span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji $(.checkbox radio).prop("checked") w Warszawie</span
+                                >Dla fundacji ${institutions[donation.institution.id]} w Warszawie</span
                                 >
                             </li>
                         </ul>
@@ -302,19 +304,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>${donnation.street}</li>
-                                <li>${donnation.city}</li>
-                                <li>${donnation.postCode}</li>
-                                <li>${donnation.phone}</li>
+                                <li data-street=""></li>
+                                <li>${donation.city}</li>
+                                <li>${donation.zipCode}</li>
+                                <li>${donation.phone}</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>${donnation.pickUpDate}</li>
-                                <li>${donnation.pickUpTime}</li>
-                                <li>${donnation.pickUpComment}</li>
+                                <li>${donation.pickUpDate}</li>
+                                <li>${donation.pickUpTime}</li>
+                                <li>${donation.pickUpComment}</li>
                             </ul>
                         </div>
                     </div>
@@ -329,7 +331,7 @@
     </div>
 </section>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../../WEB-INF/views/footer.jsp"/>
 
 <script src="<c:url value="../../../../../../../workspace/Libraries/jquery-3.4.1.js"/>"></script>
 <script src="<c:url value="../../resources/js/app.js"/>"></script>

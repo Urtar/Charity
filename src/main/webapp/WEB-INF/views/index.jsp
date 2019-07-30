@@ -13,33 +13,35 @@
     <link rel="stylesheet" href="<c:url value="../../resources/css/style.css"/>"/>
 </head>
 <body>
-<header class="header--main-page">
-    <nav class="container container--70">
-        <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
-        </ul>
+<%--<header class="header--main-page">--%>
+<%--    <nav class="container container--70">--%>
+<%--        <ul class="nav--actions">--%>
+<%--            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>--%>
+<%--            <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>--%>
+<%--        </ul>--%>
 
-        <ul>
-            <li><a href="#" class="btn btn--without-border active">Start</a></li>
-            <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="#" class="btn btn--without-border">O nas</a></li>
-            <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="#" class="btn btn--without-border">Kontakt</a></li>
-        </ul>
-    </nav>
+<%--        <ul>--%>
+<%--            <li><a href="#start" class="btn btn--without-border active">Start</a></li>--%>
+<%--            <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>--%>
+<%--            <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>--%>
+<%--            <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>--%>
+<%--            <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
 
-    <div class="slogan container container--90">
-        <div class="slogan--item">
-            <h1>
-                Zacznij pomagać!<br/>
-                Oddaj niechciane rzeczy w zaufane ręce
-            </h1>
-        </div>
-    </div>
-</header>
+<%--    <div class="slogan container container--90">--%>
+<%--        <div class="slogan--item">--%>
+<%--            <h1>--%>
+<%--                Zacznij pomagać!<br/>--%>
+<%--                Oddaj niechciane rzeczy w zaufane ręce--%>
+<%--            </h1>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</header>--%>
 
-<section class="stats">
+<jsp:include page="../../WEB-INF/views/headerMainPage.jsp"/>
+
+<section class="stats" id="start">
     <div class="container container--85">
         <div class="stats--item">
             <em>${donatedBagsQuantity}</em>
@@ -59,7 +61,7 @@
     </div>
 </section>
 
-<section class="steps">
+<section class="steps" id="steps">
     <h2>Wystarczą 4 proste kroki</h2>
 
     <div class="steps--container">
@@ -88,7 +90,7 @@
     <a href="#" class="btn btn--large">Załóż konto</a>
 </section>
 
-<section class="about-us">
+<section class="about-us" id="about-us">
     <div class="about-us--text">
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
@@ -99,7 +101,7 @@
     </div>
 </section>
 
-<section class="help">
+<section class="help" id="help">
     <h2>Komu pomagamy?</h2>
 
     <!-- SLIDE 1 -->

@@ -18,18 +18,21 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private InstitutionRepository institutionRepository;
+    private CategoryRepository categoryRepository;
+    private DonationRepository donationRepository;
+
     @Autowired
-    public InstitutionRepository institutionRepository;
-    @Autowired
-    public DonationRepository donationRepository;
+    public HomeController(InstitutionRepository institutionRepository,CategoryRepository categoryRepository,DonationRepository donationRepository){
+        this.institutionRepository = institutionRepository;
+        this.categoryRepository = categoryRepository;
+        this.donationRepository = donationRepository;
+    }
 
     @ModelAttribute("donations")
     public List<Donation> donationsList() {
         return donationRepository.findAll();
     }
-
-    @Autowired
-    public CategoryRepository categoryRepository;
 
     @ModelAttribute("donatedBagsQuantity")
     public int donatedBagsQuantity() {
@@ -45,11 +48,6 @@ public class HomeController {
     public List<Institution> institutionsList() {
         return institutionRepository.findAll();
     }
-
-//    @ModelAttribute("categories")
-//    public List<Category> categoriesList() {
-//        return categoryRepository.findAll();
-//    }
 
     @RequestMapping("/")
     public String homeAction(Model model) {

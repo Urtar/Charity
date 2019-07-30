@@ -171,4 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+  $(function() {
+    var street = $('.street').attr('value');
+  });
+
 });

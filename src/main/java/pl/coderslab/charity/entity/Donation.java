@@ -34,7 +34,6 @@ public class Donation {
     private LocalDate pickUpDate;
     @DateTimeFormat(pattern = "HH:MM")
     private LocalTime pickUpTime;
-    @NotEmpty
     private String pickUpComment;
 
     public Donation() {
