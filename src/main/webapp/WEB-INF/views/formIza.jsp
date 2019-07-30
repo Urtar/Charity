@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-<%--    <%@ include file="/WEB-INF/views/commons/style.jsp" %>--%>
   </head>
   <body>
     <header class="header--form-page">
@@ -26,7 +25,6 @@
           </li>
         </ul>
 
-<%--        <%@ include file="/WEB-INF/views/commons/header.jsp" %>--%>
       </nav>
 
       <div class="slogan container container--90">
@@ -269,6 +267,6 @@
       </div>
     </section>
 
-<%--    <%@ include file="/WEB-INF/views/commons/footer.jsp" %>--%>
+    <%@ include file="../../WEB-INF/views/footer.jsp" %>
   </body>
 </html>

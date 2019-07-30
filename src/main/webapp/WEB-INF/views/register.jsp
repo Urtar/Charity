@@ -49,7 +49,7 @@
     </form>
 </section>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../../WEB-INF/views/footer.jsp"/>
 
 </body>
 </html>

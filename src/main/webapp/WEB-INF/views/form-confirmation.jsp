@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../resources/css/style.css" />
 </head>
 <body>
+<jsp:include page="../../WEB-INF/views/headerFormPage.jsp"/>
 <header class="header--form-page">
     <nav class="container container--70">
         <ul class="nav--actions">
@@ -42,7 +43,7 @@
     </div>
 </header>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../../WEB-INF/views/footer.jsp"/>
 
 <script src="../../resources/js/app.js"></script>
 </body>

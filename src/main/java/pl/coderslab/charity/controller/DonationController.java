@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,12 +20,25 @@ import java.util.List;
 
 @Controller
 public class DonationController {
+    private InstitutionRepository institutionRepository;
+    private CategoryRepository categoryRepository;
+    private DonationRepository donationRepository;
+
     @Autowired
-    public InstitutionRepository institutionRepository;
-    @Autowired
-    public CategoryRepository categoryRepository;
-    @Autowired
-    public DonationRepository donationRepository;
+    public DonationController(InstitutionRepository institutionRepository,CategoryRepository categoryRepository,DonationRepository donationRepository){
+        this.institutionRepository = institutionRepository;
+        this.categoryRepository = categoryRepository;
+        this.institutionRepository = institutionRepository;
+
+    }
+
+
+//    @Autowired
+//    public InstitutionRepository institutionRepository;
+//    @Autowired
+//    public CategoryRepository categoryRepository;
+//    @Autowired
+//    public DonationRepository donationRepository;
 
     @ModelAttribute("institutions")
     public List<Institution> institutionsList() {
