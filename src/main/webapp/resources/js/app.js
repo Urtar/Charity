@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         this.ul.appendChild(li);
+        // $(function() {
+        //   var streetValue = $('.street').attr('value');
+        // });
       });
 
       this.dropdown.appendChild(this.ul);
@@ -107,6 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
       this.slides = [...this.$stepInstructions, ...$stepForms];
 
       this.init();
+
+
     }
 
     /**
@@ -164,6 +169,43 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      // var categories = document.querySelector('span[name="category"]').valueOf().innerHTML;
+      // document.querySelector('p[data-categories=""]').innerText = categories;
+
+      nameOfCategoryChecked();
+
+      var quantity = document.querySelector('input[name="quantity"]').valueOf().value;
+      document.querySelector('p[data-quantity=""]').innerText = quantity;
+
+      nameOfInstitutionChecked();
+
+      // var institution = document.querySelector('div[name="institution"]').valueOf().innerHTML;
+      // document.querySelector('p[data-institution=""]').innerText = institution;
+
+      // var institutionDescription = document.querySelector('div[name="institutionDescription"]').valueOf().innerHTML;
+      // document.querySelector('li[data-institutionDescription=""]').innerText = institutionDescription;
+
+
+      var streetValue = document.querySelector('input[name="street"]').valueOf().value;
+      document.querySelector('p[data-street=""]').innerText = streetValue;
+
+      var city = document.querySelector('input[name="city"]').valueOf().value;
+      document.querySelector('p[data-city=""]').innerText = city;
+
+      var zipCode = document.querySelector('input[name="zipCode"]').valueOf().value;
+      document.querySelector('p[data-zipCode=""]').innerText = zipCode;
+
+      var phone = document.querySelector('input[name="phone"]').valueOf().value;
+      document.querySelector('p[data-phone=""]').innerText = phone;
+
+      var pickUpDate = document.querySelector('input[name="pickUpDate"]').valueOf().value;
+      document.querySelector('p[data-pickUpDate=""]').innerText = pickUpDate;
+
+      var pickUpTime = document.querySelector('input[name="pickUpTime"]').valueOf().value;
+      document.querySelector('p[data-pickUpTime=""]').innerText = pickUpTime;
+
+      var pickUpComment = document.querySelector('textarea[name="pickUpComment"]').valueOf().value;
+      document.querySelector('p[data-pickUpComment=""]').innerText = pickUpComment;
     }
 
   }
@@ -172,8 +214,35 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 
-  $(function() {
-    var street = $('.street').attr('value');
-  });
 
-});
+  function nameOfInstitutionChecked()
+  {
+    var institutions = Array.prototype.slice.call(document.getElementsByClassName("institution"));
+    for(var i=0;i<institutions.length;i++)
+    {
+      if (institutions[i].checked) {
+        var institution = institutions[i].name;
+        document.querySelector('p[data-institution=""]').innerText = institution;
+      }
+    }
+  }
+
+  function nameOfCategoryChecked()
+  {
+    var categories = Array.prototype.slice.call(document.getElementsByClassName("categories"));
+    var chosenCategories = new Array();
+    for(var j=0;j<categories.length;j++)
+    {
+   if(categories[j].checked){
+
+     chosenCategories.push(categories[j].name);
+   }
+      document.querySelector('p[data-categories=""]').innerText = chosenCategories.toString();
+      // if (categories[j].checked) {
+      //   var category = categories[j].name;
+      //   document.querySelector('p[data-categories=""]').innerText = category;
+      // }
+    }
+  }
+
+ });

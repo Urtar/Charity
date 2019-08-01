@@ -101,67 +101,69 @@
                         <label>
                             <input
                                     type="checkbox"
-                                    name="categories"
+                                    name="${category.name}"
                                     value="${category.id}"
-                                    path="categories">
+                                    path="categories"
+                                    class="categories"
+                            >
                             </input>
                             <span class="checkbox"></span>
-                            <span class="description"
+                            <span class="description" name="category"
                             >${category.name}</span
                             >
                         </label>
                     </div>
                 </c:forEach>
 
-                <%--                <div class="form-group form-group--checkbox">--%>
-                <%--                    <label>--%>
-                <%--                        <input--%>
-                <%--                                type="checkbox"--%>
-                <%--                                name="categories"--%>
-                <%--                                value="clothes-to-use"--%>
-                <%--                        />--%>
-                <%--                        <span class="checkbox"></span>--%>
-                <%--                        <span class="description"--%>
-                <%--                        >ubrania, które nadają się do ponownego użycia</span--%>
-                <%--                        >--%>
-                <%--                    </label>--%>
-                <%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input--%>
+                    <%--                                type="checkbox"--%>
+                    <%--                                name="categories"--%>
+                    <%--                                value="clothes-to-use"--%>
+                    <%--                        />--%>
+                    <%--                        <span class="checkbox"></span>--%>
+                    <%--                        <span class="description"--%>
+                    <%--                        >ubrania, które nadają się do ponownego użycia</span--%>
+                    <%--                        >--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
-                <%--                <div class="form-group form-group--checkbox">--%>
-                <%--                    <label>--%>
-                <%--                        <input--%>
-                <%--                                type="checkbox"--%>
-                <%--                                name="categories"--%>
-                <%--                                value="clothes-useless"--%>
-                <%--                        />--%>
-                <%--                        <span class="checkbox"></span>--%>
-                <%--                        <span class="description">ubrania, do wyrzucenia</span>--%>
-                <%--                    </label>--%>
-                <%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input--%>
+                    <%--                                type="checkbox"--%>
+                    <%--                                name="categories"--%>
+                    <%--                                value="clothes-useless"--%>
+                    <%--                        />--%>
+                    <%--                        <span class="checkbox"></span>--%>
+                    <%--                        <span class="description">ubrania, do wyrzucenia</span>--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
-                <%--                <div class="form-group form-group--checkbox">--%>
-                <%--                    <label>--%>
-                <%--                        <input type="checkbox" name="categories" value="toys"/>--%>
-                <%--                        <span class="checkbox"></span>--%>
-                <%--                        <span class="description">zabawki</span>--%>
-                <%--                    </label>--%>
-                <%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input type="checkbox" name="categories" value="toys"/>--%>
+                    <%--                        <span class="checkbox"></span>--%>
+                    <%--                        <span class="description">zabawki</span>--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
-                <%--                <div class="form-group form-group--checkbox">--%>
-                <%--                    <label>--%>
-                <%--                        <input type="checkbox" name="categories" value="books"/>--%>
-                <%--                        <span class="checkbox"></span>--%>
-                <%--                        <span class="description">książki</span>--%>
-                <%--                    </label>--%>
-                <%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input type="checkbox" name="categories" value="books"/>--%>
+                    <%--                        <span class="checkbox"></span>--%>
+                    <%--                        <span class="description">książki</span>--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
-                <%--                <div class="form-group form-group--checkbox">--%>
-                <%--                    <label>--%>
-                <%--                        <input type="checkbox" name="categories" value="other"/>--%>
-                <%--                        <span class="checkbox"></span>--%>
-                <%--                        <span class="description">inne</span>--%>
-                <%--                    </label>--%>
-                <%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input type="checkbox" name="categories" value="other"/>--%>
+                    <%--                        <span class="checkbox"></span>--%>
+                    <%--                        <span class="description">inne</span>--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -192,11 +194,12 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="institution" value="${institution.id}" path="institution"/>
+                            <input type="radio" id="institution" name="${institution.name}" value="${institution.id}"
+                                   path="institution" class="institution"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
-                  <div class="title">${institution.name}</div>
-                  <div class="subtitle">
+                  <div class="title" name="institution">${institution.name}</div>
+                  <div class="subtitle" name="institutionDescription">
                           ${institution.description}
                   </div>
                 </span>
@@ -204,19 +207,19 @@
                     </div>
                 </c:forEach>
 
-<%--                <div class="form-group form-group--checkbox">--%>
-<%--                    <label>--%>
-<%--                        <input type="radio" name="organization" value="old"/>--%>
-<%--                        <span class="checkbox radio"></span>--%>
-<%--                        <span class="description">--%>
-<%--                  <div class="title">Fundacja “Dla dzieci"</div>--%>
-<%--                  <div class="subtitle">--%>
-<%--                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji--%>
-<%--                    życiowej.--%>
-<%--                  </div>--%>
-<%--                </span>--%>
-<%--                    </label>--%>
-<%--                </div>--%>
+                    <%--                <div class="form-group form-group--checkbox">--%>
+                    <%--                    <label>--%>
+                    <%--                        <input type="radio" name="organization" value="old"/>--%>
+                    <%--                        <span class="checkbox radio"></span>--%>
+                    <%--                        <span class="description">--%>
+                    <%--                  <div class="title">Fundacja “Dla dzieci"</div>--%>
+                    <%--                  <div class="subtitle">--%>
+                    <%--                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji--%>
+                    <%--                    życiowej.--%>
+                    <%--                  </div>--%>
+                    <%--                </span>--%>
+                    <%--                    </label>--%>
+                    <%--                </div>--%>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -232,7 +235,8 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="street" id="street" class="street" path="street"/> </label>
+                            <label> Ulica <input type="text" name="street" id="street" class="street" path="street"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -255,7 +259,7 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="pickUpData" path="pickUpDate"/> </label>
+                            <label> Data <input type="date" name="pickUpDate" path="pickUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -287,15 +291,19 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >${donation.quantity} worki ${donation.categories.id}</span
                                 >
+                            <li><p data-quantity=""></p>&nbsp; worki &nbsp;<p data-categories=""></p></li>
+                            </span
+                                    >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji ${institutions[donation.institution.id]} w Warszawie</span
                                 >
+                            <li>Dla fundacji: &nbsp;<p data-institution=""></p>&nbsp;w Warszawie</li>
+                            </span
+                                    >
                             </li>
                         </ul>
                     </div>
@@ -304,19 +312,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li data-street=""></li>
-                                <li>${donation.city}</li>
-                                <li>${donation.zipCode}</li>
-                                <li>${donation.phone}</li>
+                                <li>Ulica: &nbsp;<p data-street=""></p></li>
+                                <li>Miasto: &nbsp;<p data-city=""></p></li>
+                                <li>Kod pocztowy: &nbsp;<p data-zipCode=""></p></li>
+                                <li>Telefon: &nbsp;<p data-phone=""></p></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>${donation.pickUpDate}</li>
-                                <li>${donation.pickUpTime}</li>
-                                <li>${donation.pickUpComment}</li>
+                                <li>Data odbioru: &nbsp;<p data-pickUpDate=""></p></li>
+                                <li>Godzina odbioru: &nbsp;<p data-pickUpTime=""></p></li>
+                                <li>Informacje dodatkowe: &nbsp;<p data-pickUpComment=""></p></li>
                             </ul>
                         </div>
                     </div>
