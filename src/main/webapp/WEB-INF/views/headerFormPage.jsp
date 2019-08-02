@@ -7,7 +7,13 @@
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj Agata
+                Witaj <br/>
+
+                <sec:authorize access="isAuthenticated()">
+                    <p>Zalogowany jako: <sec:authentication property="username"/></p>
+                    <p>Posiada role: <sec:authentication property="authorities"/></p>
+                </sec:authorize>
+
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
                     <li><a href="#">Ustawienia</a></li>

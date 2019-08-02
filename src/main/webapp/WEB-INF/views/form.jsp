@@ -339,6 +339,12 @@
     </div>
 </section>
 
+
+<form action="<c:url value="/logout"/>" method="post">
+    <input class="fa fa-id-badge" type="submit" value="Wyloguj">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+
 <jsp:include page="../../WEB-INF/views/footer.jsp"/>
 
 <script src="<c:url value="../../../../../../../workspace/Libraries/jquery-3.4.1.js"/>"></script>

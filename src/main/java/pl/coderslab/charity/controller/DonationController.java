@@ -50,13 +50,13 @@ public class DonationController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/donation/add")
+    @GetMapping("/user/donation/add")
     public String donationAdd(Model model) {
         model.addAttribute("donation", new Donation());
         return "form";
     }
 
-    @PostMapping("/donation/add")
+    @PostMapping("/user/donation/add")
     public String donationAddSaveToDB(@ModelAttribute Donation donation) {
         donationRepository.save(donation);
         return "form-confirmation";
