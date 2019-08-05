@@ -4,9 +4,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <script src="<c:url value="https://cdnjs.com/libraries/jquery"/>"></script>
 <!DOCTYPE html>
 <html lang="pl">
+
+<sec:authorize access="isAuthenticated()">
+    <form action="<c:url value="/logout"/>" method="post">
+        <input type="submit" value="Wyloguj">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+</sec:authorize>
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -338,6 +347,12 @@
         </form:form>
     </div>
 </section>
+
+
+<form action="<c:url value="/logout"/>" method="post">
+    <input class="fa fa-id-badge" type="submit" value="Wyloguj">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 
 <jsp:include page="../../WEB-INF/views/footer.jsp"/>
 

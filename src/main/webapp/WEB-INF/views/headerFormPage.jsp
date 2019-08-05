@@ -1,13 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<script src="<c:url value="https://cdnjs.com/libraries/jquery"/>"></script>
+<script src="<c:url value="../../resources/js/app.js"/>"></script>
 
 <header class="header--form-page">
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj Agata
+                Witaj <br/>
+
+                <authentication-manager>
+                    <user-service id="UserDetailsService"/>
+                </authentication-manager>
+
+                <sec:authorize access="isAuthenticated()">
+                <sec:authentication property="principal.username"/>
+                </sec:authorize>
+
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
                     <li><a href="#">Ustawienia</a></li>
@@ -53,3 +65,4 @@
         </div>
     </div>
 </header>
+<script src="<c:url value="../../../../../../../workspace/Libraries/jquery-3.4.1.js"/>"></script>
