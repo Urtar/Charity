@@ -14,8 +14,8 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String loginOk() {return "redirect:/user/donation/add";}
+//    @PostMapping("/login")
+//    public String loginOk() {return "redirect:/user/donation/add";}
 
 }
 

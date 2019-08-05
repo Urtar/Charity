@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<script src="<c:url value="https://cdnjs.com/libraries/jquery"/>"></script>
+<script src="<c:url value="../../resources/js/app.js"/>"></script>
 
 <header class="header--form-page">
     <nav class="container container--70">
@@ -9,9 +12,12 @@
             <li class="logged-user">
                 Witaj <br/>
 
+                <authentication-manager>
+                    <user-service id="UserDetailsService"/>
+                </authentication-manager>
+
                 <sec:authorize access="isAuthenticated()">
-                    <p>Zalogowany jako: <sec:authentication property="username"/></p>
-                    <p>Posiada role: <sec:authentication property="authorities"/></p>
+                <sec:authentication property="principal.username"/>
                 </sec:authorize>
 
                 <ul class="dropdown">
@@ -59,3 +65,4 @@
         </div>
     </div>
 </header>
+<script src="<c:url value="../../../../../../../workspace/Libraries/jquery-3.4.1.js"/>"></script>
